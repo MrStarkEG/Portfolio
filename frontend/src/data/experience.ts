@@ -13,8 +13,8 @@ export const experience: Experience[] = [
     company: "Buguard",
     position: "Software Engineer",
     duration: "Nov 2024 - Present",
-    description: "Developing robust backend systems using Django and FastAPI with PostgreSQL and MongoDB. Building scalable applications, security tools, web scraping solutions, and data processing pipelines.",
-    technologies: ["Python", "Django", "FastAPI", "PostgreSQL", "MongoDB", "Elasticsearch", "Docker", "Web Scraping", "Celery"],
+    description: "Developing robust backend systems using FastAPI with PostgreSQL. Building scalable applications, security tools, web scraping solutions, and data processing pipelines.",
+    technologies: ["Python", "FastAPI", "PostgreSQL", "Elasticsearch", "Docker", "Web Scraping", "Celery"],
   },
   {
     id: 2,
@@ -30,6 +30,6 @@ export const experience: Experience[] = [
     position: "Telesales Specialist",
     duration: "Apr 2024 - Nov 2024",
     description: "Worked as a telesales agent with clients from USA and Canada, achieving strong performance metrics. Gained valuable cross-cultural communication experience and developed automation tools to improve workflow efficiency.",
-    technologies: ["Communication", "CRM Systems", "Python", "Automation", "ViciDial"],
+    technologies: ["Communication", "CRM Systems", "Python", "Automation"],
   }
 ];

@@ -2,65 +2,53 @@ export interface Skill {
   name: string;
   level: number;
   category: string;
+  tag?: string;
 }
 
 export const skills: Skill[] = [
-  // Programming Languages
-  { name: "Python", level: 95, category: "Programming" },
-  { name: "JavaScript", level: 85, category: "Programming" },
-  { name: "TypeScript", level: 80, category: "Programming" },
-  { name: "HTML/CSS", level: 90, category: "Programming" },
-  { name: "SQL", level: 85, category: "Programming" },
-  
-  // Backend & APIs
-  { name: "FastAPI", level: 92, category: "Backend" },
-  { name: "Celery", level: 88, category: "Backend" },
-  { name: "Node.js", level: 75, category: "Backend" },
-  { name: "RESTful APIs", level: 90, category: "Backend" },
-  
-  // Web Scraping & Automation
-  { name: "Web Scraping", level: 98, category: "Specialization" },
-  { name: "Playwright", level: 90, category: "Automation" },
-  { name: "Selenium", level: 92, category: "Automation" },
-  { name: "Camoufox", level: 88, category: "Automation" },
-  { name: "BeautifulSoup", level: 90, category: "Web Scraping" },
-  { name: "Scrapy", level: 85, category: "Web Scraping" },
-  
-  // Data Engineering
-  { name: "Elasticsearch", level: 90, category: "Database" },
-  { name: "PostgreSQL", level: 85, category: "Database" },
-  { name: "Redis", level: 80, category: "Database" },
-  { name: "MongoDB", level: 75, category: "Database" },
-  { name: "Data Pipelines", level: 88, category: "Data Engineering" },
-  { name: "ETL Processes", level: 85, category: "Data Engineering" },
-  
-  // DevOps & Cloud
-  { name: "Docker", level: 90, category: "DevOps" },
-  { name: "Docker Compose", level: 88, category: "DevOps" },
-  { name: "Kubernetes", level: 70, category: "DevOps" },
-  { name: "CI/CD", level: 80, category: "DevOps" },
-  { name: "AWS", level: 75, category: "Cloud" },
+  // Backend
+  { name: "Python", level: 80, category: "Backend", tag: "Backend" },
+  { name: "Node.js", level: 70, category: "Backend", tag: "Backend" },
+  { name: "RESTful APIs", level: 80, category: "Backend", tag: "Backend" },
   
   // Frontend
-  { name: "React", level: 80, category: "Frontend" },
-  { name: "Next.js", level: 75, category: "Frontend" },
-  { name: "Tailwind CSS", level: 85, category: "Frontend" },
-  { name: "Sass", level: 80, category: "Frontend" },
+  { name: "HTML/CSS", level: 80, category: "Frontend", tag: "Frontend" },
+  { name: "TypeScript", level: 70, category: "Frontend", tag: "Frontend" },
+  { name: "Next.js", level: 70, category: "Frontend", tag: "Frontend" },
+  { name: "Tailwind CSS", level: 70, category: "Frontend", tag: "Frontend" },
+  { name: "Sass", level: 80, category: "Frontend", tag: "Frontend" },
   
-  // AI & Machine Learning
-  { name: "Langchain", level: 82, category: "AI/ML" },
-  { name: "Claude/OpenAI APIs", level: 85, category: "AI/ML" },
-  { name: "NLP", level: 75, category: "AI/ML" },
+  // Framework
+  { name: "FastAPI", level: 80, category: "Framework", tag: "Framework" },
+  { name: "Celery", level: 70, category: "Framework", tag: "Framework" },
+  { name: "Langchain", level: 80, category: "Framework", tag: "Framework" },
+  { name: "httpx", level: 80, category: "Framework", tag: "Framework" },
+  { name: "Pydantic", level: 80, category: "Framework", tag: "Framework" },
+  { name: "SQLGlot", level: 80, category: "Framework", tag: "Framework" },
+  { name: "Telethon", level: 80, category: "Framework", tag: "Framework" },
   
-  // Security & Threat Intel
-  { name: "Threat Intelligence", level: 88, category: "Security" },
-  { name: "OSINT", level: 85, category: "Security" },
-  { name: "Security Research", level: 82, category: "Security" },
+  // Automation
+  { name: "Web Scraping", level: 95, category: "Automation", tag: "Automation" },
+  { name: "Playwright", level: 95, category: "Automation", tag: "Automation" },
+  { name: "Selenium", level: 95, category: "Automation", tag: "Automation" },
+  { name: "Camoufox", level: 95, category: "Automation", tag: "Automation" },
   
-  // Tools & Libraries
-  { name: "Git/GitHub", level: 90, category: "Tools" },
-  { name: "httpx", level: 88, category: "Tools" },
-  { name: "Pydantic", level: 85, category: "Tools" },
-  { name: "SQLGlot", level: 80, category: "Tools" },
-  { name: "Telethon", level: 85, category: "Tools" },
+  // Database
+  { name: "PostgreSQL", level: 80, category: "Database", tag: "Database" },
+  { name: "Elasticsearch", level: 70, category: "Database", tag: "Database" },
+  { name: "Redis", level: 70, category: "Database", tag: "Database" },
+  { name: "MongoDB", level: 70, category: "Database", tag: "Database" },
+  
+  // DevOps
+  { name: "Git/GitHub", level: 80, category: "DevOps", tag: "DevOps" },
+  { name: "Docker", level: 80, category: "DevOps", tag: "DevOps" },
+  { name: "Docker Compose", level: 80, category: "DevOps", tag: "DevOps" },
+  { name: "Kubernetes", level: 70, category: "DevOps", tag: "DevOps" },
+  { name: "CI/CD", level: 70, category: "DevOps", tag: "DevOps" },
+  { name: "GitHub Actions", level: 70, category: "DevOps", tag: "DevOps" },
+  { name: "AWS", level: 70, category: "DevOps", tag: "DevOps" },
+  
+  // Intel Research
+  { name: "Threat Intelligence", level: 70, category: "Intel Research", tag: "Intel Research" },
+  { name: "OSINT", level: 70, category: "Intel Research", tag: "Intel Research" },
 ];

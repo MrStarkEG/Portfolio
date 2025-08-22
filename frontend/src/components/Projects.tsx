@@ -7,7 +7,6 @@ import { getProjects, type Project } from '@/lib/api'
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([])
-  const [selectedCategory, setSelectedCategory] = useState('All')
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -20,11 +19,6 @@ export default function Projects() {
     }
     fetchProjects()
   }, [])
-
-  const categories = ['All', ...Array.from(new Set(projects.map(project => project.category)))]
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
 
   return (
     <section id="projects" className="py-20 bg-dark-800/50">
@@ -44,31 +38,8 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          <Filter className="text-primary-400 mr-2" size={20} />
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-primary-600 text-white shadow-lg'
-                  : 'glass-effect text-gray-300 hover:text-white'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
         <div className="grid md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}

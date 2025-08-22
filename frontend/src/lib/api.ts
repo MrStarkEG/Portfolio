@@ -17,6 +17,7 @@ export interface Skill {
   name: string;
   level: number;
   category: string;
+  tag?: string;
 }
 
 export interface Experience {

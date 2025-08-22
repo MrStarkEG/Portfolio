@@ -56,7 +56,6 @@ export const projects: Project[] = [
     description: "AI-powered agent that generates professional portfolios using Claude Sonnet-4 API and automatically deploys to GitHub",
     technologies: ["Python", "Langchain", "Anthropic API", "Claude Sonnet-4"],
     category: "Backend & AI",
-    github_url: "https://github.com/yourusername/portfolio-ai",
   },
   {
     id: 7,
@@ -84,7 +83,7 @@ export const projects: Project[] = [
   },
   {
     id: 10,
-    title: "UHost Landing Page",
+    title: "UHost",
     description: "Modern, responsive landing page for a hosting service with optimized performance and conversion-focused design",
     technologies: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
@@ -93,7 +92,7 @@ export const projects: Project[] = [
   },
   {
     id: 11,
-    title: "Forkify Recipe App",
+    title: "Forkify",
     description: "Interactive web application for searching and managing food recipes with modern UI and recipe API integration",
     technologies: ["HTML", "CSS", "Sass", "JavaScript"],
     category: "Full Stack",
@@ -102,7 +101,7 @@ export const projects: Project[] = [
   },
   {
     id: 12,
-    title: "Mapty Workout Tracker",
+    title: "Mapty",
     description: "Fitness tracking application with map integration for logging workouts and runs with distance and time calculations",
     technologies: ["HTML", "CSS", "JavaScript", "Leaflet.js"],
     category: "Frontend",
