@@ -241,3 +241,92 @@
     background-position: 100% 50%;
   }
 }
+
+/* Role-based background transitions for hero section */
+.role-bg-web-scraping {
+  background: linear-gradient(135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(147, 51, 234, 0.08) 50%,
+    rgba(34, 211, 238, 0.06) 100%
+  );
+  transition: all 1.5s ease-in-out;
+}
+
+.role-bg-data-engineering {
+  background: linear-gradient(135deg,
+    rgba(16, 185, 129, 0.1) 0%,
+    rgba(20, 184, 166, 0.08) 50%,
+    rgba(34, 197, 94, 0.06) 100%
+  );
+  transition: all 1.5s ease-in-out;
+}
+
+.role-bg-backend-developer {
+  background: linear-gradient(135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(59, 130, 246, 0.08) 50%,
+    rgba(147, 51, 234, 0.06) 100%
+  );
+  transition: all 1.5s ease-in-out;
+}
+
+/* Smooth particle animations */
+.particle-float {
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.7;
+  }
+  25% { 
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-30px) translateX(-5px) scale(0.9);
+    opacity: 0.8;
+  }
+  75% { 
+    transform: translateY(-15px) translateX(15px) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Enhanced text glow effects */
+.text-glow-blue {
+  text-shadow: 
+    0 0 10px rgba(59, 130, 246, 0.5),
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 30px rgba(59, 130, 246, 0.1);
+}
+
+.text-glow-emerald {
+  text-shadow: 
+    0 0 10px rgba(16, 185, 129, 0.5),
+    0 0 20px rgba(16, 185, 129, 0.3),
+    0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+.text-glow-indigo {
+  text-shadow: 
+    0 0 10px rgba(99, 102, 241, 0.5),
+    0 0 20px rgba(99, 102, 241, 0.3),
+    0 0 30px rgba(99, 102, 241, 0.1);
+}
+
+/* Smooth transition states */
+.transition-smooth {
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-smooth-fast {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced backdrop blur effects */
+.backdrop-blur-enhanced {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}

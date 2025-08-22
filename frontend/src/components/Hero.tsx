@@ -6,6 +6,7 @@ import { ChevronDown, Github, Linkedin, MessageCircle, Mail } from 'lucide-react
 
 export default function Hero() {
   const [currentRole, setCurrentRole] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const roles = [
     'Web Scraping Expert',
     'Data Engineer',
@@ -14,20 +15,46 @@ export default function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length)
+      setIsTransitioning(true)
+      setTimeout(() => {
+        setCurrentRole((prev) => (prev + 1) % roles.length)
+        setIsTransitioning(false)
+      }, 500) // Smooth transition delay
     }, 3000)
     return () => clearInterval(interval)
   }, [roles.length])
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden section-gradient-1 gradient-overlay">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-purple-900/15 to-transparent" />
-
+      {/* Dynamic animated background gradients */}
+      <motion.div 
+        key={currentRole}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+        className="absolute inset-0"
+      >
+        {currentRole === 0 && (
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-cyan-900/15 animate-pulse" />
+        )}
+        {currentRole === 1 && (
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 via-teal-900/20 to-green-900/15 animate-pulse" />
+        )}
+        {currentRole === 2 && (
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/30 via-blue-900/20 to-purple-900/15 animate-pulse" />
+        )}
+      </motion.div>
+      
+      {/* Subtle floating particles that change color with roles */}
       <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-primary-400 rounded-full"
+            className={`absolute w-1 h-1 rounded-full ${
+              currentRole === 0 ? 'bg-blue-400' : 
+              currentRole === 1 ? 'bg-emerald-400' : 
+              'bg-indigo-400'
+            }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -35,15 +62,58 @@ export default function Hero() {
             animate={{
               opacity: [0, 1, 0],
               scale: [0, 1, 0],
+              y: [0, -20, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: Math.random() * 4 + 3,
               repeat: Infinity,
               delay: Math.random() * 2,
+              ease: "easeInOut"
             }}
           />
         ))}
       </div>
+
+              {/* Enhanced floating particles with role-based colors */}
+        <div className="absolute inset-0">
+          {[...Array(50)].map((_, i) => (
+            <motion.div
+              key={i}
+              className={`absolute w-1 h-1 rounded-full particle-float ${
+                currentRole === 0 ? 'bg-blue-400' : 
+                currentRole === 1 ? 'bg-emerald-400' : 
+                'bg-indigo-400'
+              } transition-all duration-1000`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+                y: [0, -30, 0],
+                x: [0, Math.random() * 20 - 10, 0],
+              }}
+              transition={{
+                duration: Math.random() * 4 + 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Smooth transition overlay */}
+        {isTransitioning && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 backdrop-blur-sm"
+          />
+        )}
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -66,18 +136,45 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl md:text-3xl text-gray-300 mb-8 h-12"
+            className="text-2xl md:text-3xl text-gray-300 mb-8 h-12 flex items-center justify-center"
           >
-            <motion.span
+            <motion.div
               key={currentRole}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block"
+              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: { 
+                  duration: 0.8, 
+                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 100
+                }
+              }}
+              exit={{ opacity: 0, y: -30, scale: 0.8 }}
+              className="inline-block relative"
             >
-              {roles[currentRole]}
-            </motion.span>
+              <span className={`font-semibold ${
+                currentRole === 0 ? 'text-blue-400 text-glow-blue' : 
+                currentRole === 1 ? 'text-emerald-400 text-glow-emerald' : 
+                'text-indigo-400 text-glow-indigo'
+              } transition-all duration-1000`}>
+                {roles[currentRole]}
+              </span>
+              
+              {/* Subtle glow effect that changes with roles */}
+              <motion.div
+                className={`absolute inset-0 blur-lg opacity-30 ${
+                  currentRole === 0 ? 'bg-blue-400' : 
+                  currentRole === 1 ? 'bg-emerald-400' : 
+                  'bg-indigo-400'
+                }`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.3 }}
+                transition={{ duration: 1 }}
+              />
+            </motion.div>
           </motion.div>
 
           <motion.p
@@ -173,6 +270,8 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
+        
+        
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
