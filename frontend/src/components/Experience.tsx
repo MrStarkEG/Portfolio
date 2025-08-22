@@ -48,13 +48,18 @@ export default function Experience() {
               viewport={{ once: true }}
               className="relative mb-12 last:mb-0"
             >
-              <div className="flex items-center mb-8">
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full z-10" />
+              <div className="flex items-center mb-8 relative">
+                {/* Timeline line connecting to previous item */}
                 {index > 0 && (
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-gradient-to-b from-primary-500 to-transparent z-0 -top-12 h-16" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-primary-500 z-0 -top-12 h-12" />
                 )}
+                
+                {/* Dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full z-10" />
+                
+                {/* Timeline line connecting to next item */}
                 {index < experiences.length - 1 && (
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-gradient-to-b from-primary-500 to-transparent z-0 top-4 h-full" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-primary-500 z-0 top-2 h-12" />
                 )}
               </div>
 
