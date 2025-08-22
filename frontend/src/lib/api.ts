@@ -1,20 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-
-export async function apiCall(endpoint: string, options?: RequestInit) {
-  const response = await fetch(`${API_URL}${endpoint}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers,
-    },
-  });
-  
-  if (!response.ok) {
-    throw new Error(`API call failed: ${response.statusText}`);
-  }
-  
-  return response.json();
-}
+import { projects } from '@/data/projects';
+import { skills } from '@/data/skills';
+import { experience } from '@/data/experience';
 
 export interface Project {
   id: number;
@@ -55,14 +41,48 @@ export interface Stats {
   clients_satisfied: number;
 }
 
-export const getProjects = (): Promise<Project[]> => apiCall('/api/projects');
-export const getProject = (id: number): Promise<Project> => apiCall(`/api/projects/${id}`);
-export const getSkills = (): Promise<Skill[]> => apiCall('/api/skills');
-export const getExperience = (): Promise<Experience[]> => apiCall('/api/experience');
-export const getStats = (): Promise<Stats> => apiCall('/api/stats');
+// Local data fetchers that simulate async API calls
+export const getProjects = async (): Promise<Project[]> => {
+  return Promise.resolve(projects);
+};
 
-export const sendContactMessage = (message: ContactMessage): Promise<{ success: boolean; message: string }> =>
-  apiCall('/api/contact', {
-    method: 'POST',
-    body: JSON.stringify(message),
-  });
+export const getProject = async (id: number): Promise<Project> => {
+  const project = projects.find(p => p.id === id);
+  if (!project) {
+    throw new Error('Project not found');
+  }
+  return Promise.resolve(project);
+};
+
+export const getSkills = async (): Promise<Skill[]> => {
+  return Promise.resolve(skills);
+};
+
+export const getExperience = async (): Promise<Experience[]> => {
+  return Promise.resolve(experience);
+};
+
+export const getStats = async (): Promise<Stats> => {
+  const stats: Stats = {
+    projects_completed: projects.length,
+    years_experience: 3,
+    technologies_mastered: skills.filter(s => s.level >= 80).length,
+    clients_satisfied: 20,
+  };
+  return Promise.resolve(stats);
+};
+
+// For contact form, we'll need to integrate with a service like EmailJS or Formspree
+export const sendContactMessage = async (message: ContactMessage): Promise<{ success: boolean; message: string }> => {
+  // This will be replaced with actual email service integration
+  // For now, just log to console
+  console.log('Contact message:', message);
+  
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  return {
+    success: true,
+    message: "Thank you for your message! I'll get back to you soon.",
+  };
+};

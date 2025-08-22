@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  output: 'export',
   images: {
-    domains: ['localhost'],
+    unoptimized: true,
   },
+  basePath: process.env.NODE_ENV === 'production' ? '/shahat_readme' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/shahat_readme' : '',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
