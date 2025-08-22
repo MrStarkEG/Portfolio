@@ -34,7 +34,7 @@ export default function About() {
     {
       icon: <Globe className="w-8 h-8" />,
       title: 'Full-Stack Development',
-      description: 'Creating modern web applications with React, Next.js, FastAPI, and other cutting-edge technologies.'
+      description: 'Creating modern web applications with Next.js, FastAPI, and other cutting-edge technologies.'
     },
     {
       icon: <Zap className="w-8 h-8" />,
@@ -57,8 +57,8 @@ export default function About() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I'm a passionate software developer with expertise in web scraping, data engineering, 
-            and full-stack development. Currently working at BuGuard, I specialize in creating 
+            I'm a passionate software developer with expertise in web scraping, data engineering,
+            and full-stack development. Currently working at Buguard, I specialize in creating
             scalable solutions that turn complex data challenges into business opportunities.
           </p>
         </motion.div>

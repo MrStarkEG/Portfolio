@@ -41,7 +41,6 @@ export interface Stats {
   clients_satisfied: number;
 }
 
-// Local data fetchers that simulate async API calls
 export const getProjects = async (): Promise<Project[]> => {
   return Promise.resolve(projects);
 };
@@ -72,13 +71,9 @@ export const getStats = async (): Promise<Stats> => {
   return Promise.resolve(stats);
 };
 
-// For contact form, we'll need to integrate with a service like EmailJS or Formspree
 export const sendContactMessage = async (message: ContactMessage): Promise<{ success: boolean; message: string }> => {
-  // This will be replaced with actual email service integration
-  // For now, just log to console
   console.log('Contact message:', message);
   
-  // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
   
   return {

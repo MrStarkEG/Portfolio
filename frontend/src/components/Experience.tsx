@@ -55,9 +55,8 @@ export default function Experience() {
 
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className={`glass-effect rounded-xl p-8 ${
-                  index % 2 === 0 ? 'ml-8 md:ml-0 md:mr-1/2' : 'mr-8 md:mr-0 md:ml-1/2'
-                }`}
+                className={`glass-effect rounded-xl p-8 ${index % 2 === 0 ? 'ml-8 md:ml-0 md:mr-1/2' : 'mr-8 md:mr-0 md:ml-1/2'
+                  }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -115,11 +114,11 @@ export default function Experience() {
         >
           <div className="glass-effect rounded-xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 gradient-text">
-              Currently at BuGuard
+              Currently at Buguard
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              I'm currently contributing to innovative projects at BuGuard, where I focus on 
-              developing scalable web scraping solutions, building robust data pipelines, and 
+              I'm currently contributing to innovative projects at Buguard, where I focus on
+              developing scalable web scraping solutions, building robust data pipelines, and
               creating efficient backend systems that power modern applications.
             </p>
           </div>

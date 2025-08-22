@@ -10,7 +10,7 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     id: 1,
-    company: "BuGuard",
+    company: "Buguard",
     position: "Software Engineer",
     duration: "Nov 2024 - Present",
     description: "Developing robust backend systems using Django and FastAPI with PostgreSQL and MongoDB. Building scalable applications, security tools, web scraping solutions, and data processing pipelines.",
