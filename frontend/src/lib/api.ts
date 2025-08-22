@@ -65,8 +65,8 @@ export const getStats = async (): Promise<Stats> => {
   const stats: Stats = {
     projects_completed: projects.length,
     years_experience: 3,
-    technologies_mastered: skills.filter(s => s.level >= 80).length,
-    clients_satisfied: 20,
+    technologies_mastered: 20,
+    clients_satisfied: 5,
   };
   return Promise.resolve(stats);
 };
