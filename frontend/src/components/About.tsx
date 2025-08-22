@@ -20,6 +20,42 @@ export default function About() {
     fetchStats()
   }, [])
 
+  const AnimatedCounter = ({ end, duration = 2 }: { end: number; duration?: number }) => {
+    const [count, setCount] = useState(0)
+    const [hasStarted, setHasStarted] = useState(false)
+
+    useEffect(() => {
+      if (!hasStarted) return
+
+      let startTime: number
+      let animationFrame: number
+
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp
+        const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
+        setCount(Math.floor(progress * end))
+        
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate)
+        }
+      }
+
+      animationFrame = requestAnimationFrame(animate)
+      return () => cancelAnimationFrame(animationFrame)
+    }, [end, duration, hasStarted])
+
+    return (
+      <motion.span
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        onViewportEnter={() => setHasStarted(true)}
+      >
+        {count}
+      </motion.span>
+    )
+  }
+
   const features = [
     {
       icon: <Code className="w-8 h-8" />,
@@ -79,7 +115,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="text-4xl font-bold gradient-text mb-2"
               >
-                {stats.projects_completed}+
+                <AnimatedCounter end={stats.projects_completed} />+
               </motion.div>
               <p className="text-gray-400">Projects Completed</p>
             </div>
@@ -91,7 +127,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="text-4xl font-bold gradient-text mb-2"
               >
-                {stats.years_experience}+
+                <AnimatedCounter end={stats.years_experience} />+
               </motion.div>
               <p className="text-gray-400">Years Experience</p>
             </div>
@@ -103,7 +139,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="text-4xl font-bold gradient-text mb-2"
               >
-                {stats.technologies_mastered}+
+                <AnimatedCounter end={stats.technologies_mastered} />+
               </motion.div>
               <p className="text-gray-400">Technologies</p>
             </div>
@@ -115,7 +151,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="text-4xl font-bold gradient-text mb-2"
               >
-                {stats.clients_satisfied}+
+                <AnimatedCounter end={stats.clients_satisfied} />+
               </motion.div>
               <p className="text-gray-400">Happy Clients</p>
             </div>
