@@ -9,11 +9,16 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'MrStarkEG - Portfolio',
+  title: 'MrStarkEG',
   description: 'Full-stack developer specializing in web scraping, data engineering, and modern web development',
   keywords: 'web scraping, data engineering, full-stack developer, python, react, fastapi',
   authors: [{ name: 'MrStarkEG' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
