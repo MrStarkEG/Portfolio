@@ -77,7 +77,7 @@ export default function Footer() {
                 <Mail size={24} />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/ahmed-elshahat-25690b27b/"
+                href="https://www.linkedin.com/in/mrstarkeg/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: 5 }}

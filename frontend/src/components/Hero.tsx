@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden section-gradient-1 gradient-overlay">
       {/* Dynamic animated background gradients */}
-      <motion.div 
+      <motion.div
         key={currentRole}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -44,17 +44,16 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/30 via-blue-900/20 to-purple-900/15 animate-pulse" />
         )}
       </motion.div>
-      
+
       {/* Subtle floating particles that change color with roles */}
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className={`absolute w-1 h-1 rounded-full ${
-              currentRole === 0 ? 'bg-blue-400' : 
-              currentRole === 1 ? 'bg-emerald-400' : 
-              'bg-indigo-400'
-            }`}
+            className={`absolute w-1 h-1 rounded-full ${currentRole === 0 ? 'bg-blue-400' :
+              currentRole === 1 ? 'bg-emerald-400' :
+                'bg-indigo-400'
+              }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -74,46 +73,45 @@ export default function Hero() {
         ))}
       </div>
 
-              {/* Enhanced floating particles with role-based colors */}
-        <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={`absolute w-1 h-1 rounded-full particle-float ${
-                currentRole === 0 ? 'bg-blue-400' : 
-                currentRole === 1 ? 'bg-emerald-400' : 
+      {/* Enhanced floating particles with role-based colors */}
+      <div className="absolute inset-0">
+        {[...Array(50)].map((_, i) => (
+          <motion.div
+            key={i}
+            className={`absolute w-1 h-1 rounded-full particle-float ${currentRole === 0 ? 'bg-blue-400' :
+              currentRole === 1 ? 'bg-emerald-400' :
                 'bg-indigo-400'
               } transition-all duration-1000`}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0],
-                y: [0, -30, 0],
-                x: [0, Math.random() * 20 - 10, 0],
-              }}
-              transition={{
-                duration: Math.random() * 4 + 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-        </div>
-        
-        {/* Smooth transition overlay */}
-        {isTransitioning && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 backdrop-blur-sm"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+              y: [0, -30, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+            }}
+            transition={{
+              duration: Math.random() * 4 + 3,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+              ease: "easeInOut"
+            }}
           />
-        )}
+        ))}
+      </div>
+
+      {/* Smooth transition overlay */}
+      {isTransitioning && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 backdrop-blur-sm"
+        />
+      )}
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -141,12 +139,12 @@ export default function Hero() {
             <motion.div
               key={currentRole}
               initial={{ opacity: 0, y: 30, scale: 0.8 }}
-              animate={{ 
-                opacity: 1, 
-                y: 0, 
+              animate={{
+                opacity: 1,
+                y: 0,
                 scale: 1,
-                transition: { 
-                  duration: 0.8, 
+                transition: {
+                  duration: 0.8,
                   ease: "easeOut",
                   type: "spring",
                   stiffness: 100
@@ -155,21 +153,19 @@ export default function Hero() {
               exit={{ opacity: 0, y: -30, scale: 0.8 }}
               className="inline-block relative"
             >
-              <span className={`font-semibold ${
-                currentRole === 0 ? 'text-blue-400 text-glow-blue' : 
-                currentRole === 1 ? 'text-emerald-400 text-glow-emerald' : 
-                'text-indigo-400 text-glow-indigo'
-              } transition-all duration-1000`}>
+              <span className={`font-semibold ${currentRole === 0 ? 'text-blue-400 text-glow-blue' :
+                currentRole === 1 ? 'text-emerald-400 text-glow-emerald' :
+                  'text-indigo-400 text-glow-indigo'
+                } transition-all duration-1000`}>
                 {roles[currentRole]}
               </span>
-              
+
               {/* Subtle glow effect that changes with roles */}
               <motion.div
-                className={`absolute inset-0 blur-lg opacity-30 ${
-                  currentRole === 0 ? 'bg-blue-400' : 
-                  currentRole === 1 ? 'bg-emerald-400' : 
-                  'bg-indigo-400'
-                }`}
+                className={`absolute inset-0 blur-lg opacity-30 ${currentRole === 0 ? 'bg-blue-400' :
+                  currentRole === 1 ? 'bg-emerald-400' :
+                    'bg-indigo-400'
+                  }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.3 }}
                 transition={{ duration: 1 }}
@@ -218,7 +214,7 @@ export default function Hero() {
               title="Telegram"
             >
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
               </svg>
             </motion.a>
             <motion.a
@@ -233,7 +229,7 @@ export default function Hero() {
               <Mail size={28} />
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/ahmed-elshahat-25690b27b/"
+              href="https://www.linkedin.com/in/mrstarkeg/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 5 }}
@@ -264,14 +260,14 @@ export default function Hero() {
               title="Medium"
             >
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
               </svg>
             </motion.a>
           </motion.div>
         </motion.div>
 
-        
-        
+
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

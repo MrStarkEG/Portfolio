@@ -31,7 +31,7 @@ export default function Contact() {
         if (!startTime) startTime = timestamp
         const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
         setCount(Math.floor(progress * end))
-        
+
         if (progress < 1) {
           animationFrame = requestAnimationFrame(animate)
         }
@@ -48,7 +48,7 @@ export default function Contact() {
     {
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
         </svg>
       ),
       label: 'Telegram',
@@ -65,12 +65,12 @@ export default function Contact() {
       icon: <Linkedin className="w-6 h-6" />,
       label: 'LinkedIn',
       value: 'Ahmed Elshahat',
-      link: 'https://www.linkedin.com/in/ahmed-elshahat-25690b27b/'
+      link: 'https://www.linkedin.com/in/mrstarkeg/'
     },
     {
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
         </svg>
       ),
       label: 'Medium',
@@ -134,7 +134,7 @@ export default function Contact() {
             <h3 className="text-2xl font-bold text-white text-center mb-8">
               Let's start a <span className="gradient-text">conversation</span>
             </h3>
-            
+
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -172,7 +172,7 @@ export default function Contact() {
             <h3 className="text-2xl font-bold text-white text-center mb-6">
               Why Work With <span className="gradient-text">Me?</span>
             </h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {whyWorkWithMe.map((item, index) => (
                 <motion.div
@@ -181,7 +181,7 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.01,
                     transition: { duration: 0.3 }
                   }}
@@ -194,15 +194,15 @@ export default function Contact() {
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                   />
-                  
+
                   <div className="relative z-10">
-                    <motion.div 
+                    <motion.div
                       className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${item.color} text-white mb-4`}
-                      animate={{ 
+                      animate={{
                         rotate: [0, 5, -5, 0],
                         scale: [1, 1.1, 1]
                       }}
-                      transition={{ 
+                      transition={{
                         duration: 2,
                         repeat: Infinity,
                         repeatDelay: 3,
@@ -211,11 +211,11 @@ export default function Contact() {
                     >
                       {item.icon}
                     </motion.div>
-                    
+
                     <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
                     <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
                   </div>
-                  
+
                   <motion.div
                     className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${item.color} rounded-full blur-sm opacity-15`}
                     animate={{
