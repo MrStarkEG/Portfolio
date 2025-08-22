@@ -20,8 +20,8 @@ export default function Hero() {
   }, [roles.length])
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-purple-900/20" />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden section-gradient-1 gradient-overlay">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-purple-900/15 to-transparent" />
 
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (

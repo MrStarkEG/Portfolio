@@ -21,7 +21,7 @@ export default function Projects() {
   }, [])
 
   return (
-    <section id="projects" className="py-20 bg-dark-800/50">
+    <section id="projects" className="py-20 section-bg-2 section-transition">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -47,7 +47,7 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
-              className="glass-effect rounded-xl overflow-hidden card-hover"
+              className="glass-effect-enhanced rounded-xl overflow-hidden card-hover section-glow"
             >
               <div className="h-48 bg-gradient-to-br from-primary-600 to-purple-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/20" />

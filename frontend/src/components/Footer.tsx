@@ -11,7 +11,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-dark-900 border-t border-gray-800">
+    <footer className="bg-gradient-to-t from-dark-900 via-dark-800 to-dark-900 border-t border-gray-800">
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <motion.div

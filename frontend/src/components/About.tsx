@@ -80,7 +80,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 bg-dark-800/50">
+    <section id="about" className="py-20 section-bg-1 section-transition gradient-overlay">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -167,7 +167,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="glass-effect rounded-xl p-6 text-center card-hover"
+              className="glass-effect-enhanced rounded-xl p-6 text-center card-hover section-glow"
             >
               <motion.div
                 whileHover={{ rotate: 360 }}

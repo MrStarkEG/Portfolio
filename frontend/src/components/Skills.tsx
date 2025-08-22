@@ -54,7 +54,7 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 bg-dark-900">
+    <section id="skills" className="py-20 section-bg-1 section-transition">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
