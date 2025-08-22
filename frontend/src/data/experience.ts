@@ -22,7 +22,7 @@ export const experience: Experience[] = [
     position: "Python Developer",
     duration: "Apr 2022 - Nov 2024",
     description: "Delivered custom Python solutions including backend systems with Django and FastAPI, integrated with PostgreSQL and MongoDB databases. Specialized in web scraping systems, automation tools, data engineering pipelines, threat intelligence tools, and security research applications.",
-    technologies: ["Python", "Django", "FastAPI", "PostgreSQL", "MongoDB", "Selenium", "Playwright", "Docker", "Elasticsearch", "Web Scraping"],
+    technologies: ["Python", "Django", "FastAPI", "PostgreSQL", "MongoDB", "Selenium", "Playwright", "Docker", "Web Scraping"],
   },
   {
     id: 3,
