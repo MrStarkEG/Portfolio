@@ -64,18 +64,18 @@ export const projects: Project[] = [
     technologies: ["Python", "Requests", "PostgreSQL"],
     category: "Web Scraping",
     // Private repository
-  },
-  {
-    id: 8,
-    title: "ViciDialer Automator",
-    description: "Browser automation tool for ViciDial with multiple utilities for call center operations",
-    technologies: ["Python", "Selenium", "Browser Automation"],
-    category: "Automation",
-    // Private repository
-  },
-  {
-    id: 9,
-    title: "Telemon - Telegram Monitor",
+     },
+   {
+     id: 8,
+     title: "ViciDialer Automator",
+     description: "Browser automation tool for ViciDial with multiple utilities for call center operations",
+     technologies: ["Python", "Selenium", "Browser Automation"],
+     category: "Automation",
+     // Private repository
+   },
+   {
+     id: 9,
+     title: "Telemon - Telegram Monitor",
     description: "Telegram monitoring system for tracking multiple channels and groups with message archiving for threat intelligence",
     technologies: ["Python", "Telethon", "Elasticsearch"],
     category: "Backend & Web Scraping",

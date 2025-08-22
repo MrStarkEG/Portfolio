@@ -24,12 +24,5 @@ export const experience: Experience[] = [
     description: "Delivered custom Python solutions including backend systems with Django and FastAPI, integrated with PostgreSQL and MongoDB databases. Specialized in web scraping systems, automation tools, data engineering pipelines, threat intelligence tools, and security research applications.",
     technologies: ["Python", "Django", "FastAPI", "PostgreSQL", "MongoDB", "Selenium", "Playwright", "Docker", "Web Scraping"],
   },
-  {
-    id: 3,
-    company: "Norma Global Solutions",
-    position: "Telesales Specialist",
-    duration: "Apr 2024 - Nov 2024",
-    description: "Worked as a telesales agent with clients from USA and Canada, achieving strong performance metrics. Gained valuable cross-cultural communication experience and developed automation tools to improve workflow efficiency.",
-    technologies: ["Communication", "CRM Systems", "Python", "Automation"],
-  }
+
 ];
