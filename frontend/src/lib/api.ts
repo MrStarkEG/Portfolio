@@ -38,8 +38,8 @@ export interface ContactMessage {
 export interface Stats {
   projects_completed: number;
   years_experience: number;
-  technologies_mastered: number;
-  clients_satisfied: number;
+  articles_written: number;
+  skills_mastered: number;
 }
 
 export const getProjects = async (): Promise<Project[]> => {
@@ -66,17 +66,17 @@ export const getStats = async (): Promise<Stats> => {
   const stats: Stats = {
     projects_completed: projects.length,
     years_experience: 3,
-    technologies_mastered: 20,
-    clients_satisfied: 5,
+    articles_written: 12,
+    skills_mastered: skills.length,
   };
   return Promise.resolve(stats);
 };
 
 export const sendContactMessage = async (message: ContactMessage): Promise<{ success: boolean; message: string }> => {
   console.log('Contact message:', message);
-  
+
   await new Promise(resolve => setTimeout(resolve, 1000));
-  
+
   return {
     success: true,
     message: "Thank you for your message! I'll get back to you soon.",

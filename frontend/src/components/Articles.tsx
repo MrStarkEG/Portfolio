@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Calendar, Clock } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 interface Article {
   id: number
@@ -49,95 +49,48 @@ const articles: Article[] = [
 
 export default function Articles() {
   return (
-    <section id="articles" className="py-20 section-bg-1 section-transition">
+    <section id="articles" className="py-32 bg-background relative z-10">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Latest <span className="gradient-text">Articles</span>
+        <div className="mb-20">
+          <span className="text-primary-500 font-mono text-sm tracking-widest uppercase mb-4 block">Thoughts</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+            INSIGHTS
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Insights and tutorials on web scraping, automation, and modern development practices
-          </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
           {articles.map((article, index) => (
-            <motion.article
+            <motion.a
               key={article.id}
-              initial={{ opacity: 0, y: 30 }}
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="glass-effect rounded-xl p-6 card-hover group"
+              className="group border border-white/10 p-8 md:p-12 hover:bg-white/5 transition-all duration-300 relative overflow-hidden"
             >
-              <div className="flex items-center gap-2 mb-4 text-sm text-gray-400">
-                <Calendar size={16} />
+              <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowUpRight className="text-white" size={24} />
+              </div>
+
+              <div className="flex gap-4 text-xs font-mono text-gray-500 mb-6 uppercase tracking-wider">
                 <span>{article.publishDate}</span>
                 <span>•</span>
-                <Clock size={16} />
                 <span>{article.readTime}</span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors">
                 {article.title}
               </h3>
 
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 {article.description}
               </p>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-orange-500">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-                  </svg>
-                  <span className="text-sm font-medium">Medium</span>
-                </div>
-
-                <motion.a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors duration-300 font-semibold"
-                >
-                  Read More
-                  <ExternalLink size={16} />
-                </motion.a>
-              </div>
-            </motion.article>
+            </motion.a>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <motion.a
-            href="https://medium.com/@mrstarkeg"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="btn-primary inline-flex items-center gap-2"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-            </svg>
-            View All Articles
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   )
