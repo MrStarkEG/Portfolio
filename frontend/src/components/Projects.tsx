@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight, Github, Lock } from 'lucide-react';
 import { getProjects, type Project } from '@/lib/api';
 
 export default function Projects() {
@@ -145,27 +145,44 @@ export default function Projects() {
                             </div>
                           </div>
 
-                          <div>
-                            <h4 className="text-xs font-mono text-primary-400 uppercase tracking-widest mb-4">Deployment</h4>
-                            <div className="flex gap-6">
-                              {project.github_url && (
-                                <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-primary-400 text-base group/link transition-colors">
-                                  <div className="p-2 rounded-full bg-white/5 group-hover/link:bg-primary-500/20 transition-colors">
-                                    <Github className="w-5 h-5" />
-                                  </div>
-                                  <span className="font-mono">source_code</span>
-                                </a>
-                              )}
-                              {project.demo_url && (
-                                <a href={project.demo_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-primary-400 text-base group/link transition-colors">
-                                  <div className="p-2 rounded-full bg-white/5 group-hover/link:bg-primary-500/20 transition-colors">
-                                    <ArrowUpRight className="w-5 h-5" />
-                                  </div>
-                                  <span className="font-mono">live_demo</span>
-                                </a>
-                              )}
+                          {project.confidential ? (
+                            <div>
+                              <h4 className="text-xs font-mono text-primary-400 uppercase tracking-widest mb-4">Status</h4>
+                              <div className="flex items-center gap-3 p-4 rounded-lg border border-amber-500/20 bg-amber-500/5">
+                                <div className="p-2 rounded-full bg-amber-500/10 text-amber-400">
+                                  <Lock className="w-4 h-4" />
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-mono text-sm text-amber-300">Confidential — closed source</span>
+                                  <span className="text-xs text-gray-500">Proprietary project, can't be open-sourced for now.</span>
+                                </div>
+                              </div>
                             </div>
-                          </div>
+                          ) : (project.github_url || project.demo_url) && (
+                            <div>
+                              <h4 className="text-xs font-mono text-primary-400 uppercase tracking-widest mb-4">
+                                {project.demo_url ? 'Deployment' : 'Source'}
+                              </h4>
+                              <div className="flex gap-6">
+                                {project.github_url && (
+                                  <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-primary-400 text-base group/link transition-colors">
+                                    <div className="p-2 rounded-full bg-white/5 group-hover/link:bg-primary-500/20 transition-colors">
+                                      <Github className="w-5 h-5" />
+                                    </div>
+                                    <span className="font-mono">source_code</span>
+                                  </a>
+                                )}
+                                {project.demo_url && (
+                                  <a href={project.demo_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-primary-400 text-base group/link transition-colors">
+                                    <div className="p-2 rounded-full bg-white/5 group-hover/link:bg-primary-500/20 transition-colors">
+                                      <ArrowUpRight className="w-5 h-5" />
+                                    </div>
+                                    <span className="font-mono">live_demo</span>
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
 
