@@ -16,10 +16,10 @@ export default function About() {
       } catch (error) {
         // Fallback if API fails
         setStats({
-          years_experience: 3,
-          projects_completed: 15,
-          articles_written: 10,
-          skills_mastered: 20
+          years_experience: "2+",
+          projects_completed: "15+",
+          articles_written: 6,
+          skills_mastered: 30
         })
       }
     }
@@ -63,9 +63,9 @@ export default function About() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-12 pt-12 border-t border-white/10">
               {[
-                { label: 'Years Exp', value: stats?.years_experience || '3+' },
-                { label: 'Projects', value: stats?.projects_completed || '15+' },
-                { label: 'Articles', value: stats?.articles_written || '10+' },
+                { label: 'Years Exp', value: stats?.years_experience ?? '2+' },
+                { label: 'Projects', value: stats?.projects_completed ?? '15+' },
+                { label: 'Articles', value: stats?.articles_written ?? 6 },
                 { label: 'Commits', value: '1k+' }
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col">
