@@ -1,0 +1,28 @@
+export interface Experience {
+  id: number;
+  company: string;
+  position: string;
+  duration: string;
+  description: string;
+  technologies: string[];
+}
+
+export const experience: Experience[] = [
+  {
+    id: 1,
+    company: "Buguard",
+    position: "Software Engineer",
+    duration: "Nov 2024 - Present",
+    description: "Developing robust backend systems using FastAPI with PostgreSQL. Building scalable applications, security tools, web scraping solutions, and data processing pipelines.",
+    technologies: ["Python", "FastAPI", "PostgreSQL", "Elasticsearch", "Docker", "Web Scraping", "Celery"],
+  },
+  {
+    id: 2,
+    company: "Freelance",
+    position: "Python Developer",
+    duration: "Apr 2022 - Nov 2024",
+    description: "Delivered custom Python solutions including backend systems with Django and FastAPI, integrated with PostgreSQL and MongoDB databases. Specialized in web scraping systems, automation tools, data engineering pipelines, threat intelligence tools, and security research applications.",
+    technologies: ["Python", "Django", "FastAPI", "PostgreSQL", "MongoDB", "Selenium", "Playwright", "Docker", "Web Scraping"],
+  },
+
+];
