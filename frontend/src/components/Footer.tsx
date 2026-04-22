@@ -21,10 +21,6 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-8">
-          <span className="text-gray-500 text-sm hidden md:block">
-            Designed & Built with <span className="text-red-500">♥</span> in Egypt
-          </span>
-
           <button
             onClick={scrollToTop}
             className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all group"

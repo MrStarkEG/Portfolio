@@ -1,22 +1,13 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDownRight } from 'lucide-react'
 import FloatingLines from './FloatingLines'
 
-const roles = [
-  { text: "WEB SCRAPING EXPERT", gradient: "from-orange-400 via-amber-500 to-yellow-500" },
-  { text: "DATA ENGINEER", gradient: "from-emerald-400 via-green-500 to-lime-500" },
-  { text: "BACKEND DEVELOPER", gradient: "from-blue-400 via-indigo-500 to-purple-500" }
-]
-
-
-const roleColors = [
-  ['#fb923c', '#f59e0b', '#eab308'], // Web Scraping (Orange/Amber)
-  ['#34d399', '#10b981', '#15803d'], // Data Engineer (Emerald)
-  ['#60a5fa', '#6366f1', '#8b5cf6']  // Backend Dev (Blue/Indigo)
-]
+const ROLE_TEXT = "SOFTWARE ENGINEER"
+const ROLE_GRADIENT = "from-violet-400 via-purple-400 to-indigo-500"
+const ROLE_COLORS = ['#a78bfa', '#8b5cf6', '#6366f1']
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -28,23 +19,12 @@ export default function Hero() {
   // Loading state for orchestrated animations
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // Role rotation logic
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
-
   // Initial load effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true)
     }, 100)
     return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
-    }, 3000) // Change every 3 seconds
-
-    return () => clearInterval(interval)
   }, [])
 
   // Parallax effects
@@ -75,7 +55,7 @@ export default function Hero() {
           transition={{ duration: 2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
           <FloatingLines
-            linesGradient={roleColors[currentRoleIndex]}
+            linesGradient={ROLE_COLORS}
             enabledWaves={['top', 'middle', 'bottom']}
             lineCount={[4, 6, 8]}
             lineDistance={[6, 5, 4]}
@@ -197,49 +177,31 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            {/* Animated Role with Burst Effect */}
+            {/* Static Role */}
             <div className="relative overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.h2
-                  key={currentRoleIndex}
-                  initial={{
-                    opacity: 0,
-                    y: 60,
-                    scale: 0.8,
-                    filter: "blur(20px)"
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    filter: "blur(0px)"
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: -60,
-                    scale: 1.2,
-                    filter: "blur(20px)"
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    ease: [0.16, 1, 0.3, 1]
-                  }}
-                  className={`text-[11vw] sm:text-[9vw] md:text-[7vw] lg:text-[5.5vw] xl:text-[5rem] 2xl:text-[6rem] font-bold leading-[1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${roles[currentRoleIndex].gradient}`}
-                  spellCheck={false}
-                >
-                  {roles[currentRoleIndex].text}
-                </motion.h2>
-              </AnimatePresence>
-
-              {/* Glitch overlay effect on role change */}
-              <motion.div
-                key={`glitch-${currentRoleIndex}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.3, 0] }}
-                transition={{ duration: 0.3 }}
-                className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 mix-blend-overlay pointer-events-none"
-                style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-              />
+              <motion.h2
+                initial={{
+                  opacity: 0,
+                  y: 60,
+                  scale: 0.8,
+                  filter: "blur(20px)"
+                }}
+                animate={isLoaded ? {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  filter: "blur(0px)"
+                } : {}}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.8,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
+                className={`text-[11vw] sm:text-[9vw] md:text-[7vw] lg:text-[5.5vw] xl:text-[5rem] 2xl:text-[6rem] font-bold leading-[1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${ROLE_GRADIENT}`}
+                spellCheck={false}
+              >
+                {ROLE_TEXT}
+              </motion.h2>
             </div>
           </div>
 
