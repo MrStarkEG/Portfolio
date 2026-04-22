@@ -92,20 +92,36 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <p className="text-gray-400 leading-relaxed mb-8 font-light text-base border-l-2 border-white/10 pl-4">
+                    <p className="text-gray-400 leading-relaxed mb-6 font-light text-base border-l-2 border-white/10 pl-4">
                       {exp.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map(tech => (
-                        <span
-                          key={tech}
-                          className="text-xs font-mono text-gray-500 border border-white/10 px-3 py-1.5 rounded-md uppercase tracking-wider hover:text-white hover:border-primary-500/30 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    {exp.highlights && exp.highlights.length > 0 && (
+                      <ul className="mb-8 space-y-3">
+                        {exp.highlights.map((highlight, i) => (
+                          <li
+                            key={i}
+                            className="flex gap-3 text-sm md:text-base text-gray-300 leading-relaxed"
+                          >
+                            <span className="mt-[0.55rem] shrink-0 w-1.5 h-1.5 rounded-full bg-primary-500 shadow-[0_0_8px_rgba(139,92,246,0.8)]" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {exp.technologies && exp.technologies.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map(tech => (
+                          <span
+                            key={tech}
+                            className="text-xs font-mono text-gray-500 border border-white/10 px-3 py-1.5 rounded-md uppercase tracking-wider hover:text-white hover:border-primary-500/30 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Corner Accent */}
                     <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-bl from-primary-500/10 to-transparent rounded-tr-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
