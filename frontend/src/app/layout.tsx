@@ -16,14 +16,10 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: 'MrStarkEG',
-  description: 'Full-stack developer specializing in web scraping, data engineering, and modern web development',
-  keywords: 'web scraping, data engineering, full-stack developer, python, react, fastapi',
+  description: 'Software engineer specializing in web scraping, data engineering, and modern web development',
+  keywords: 'software engineer, web scraping, data engineering, python, react, fastapi',
   authors: [{ name: 'MrStarkEG' }],
-  icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
-  },
+
 }
 
 export default function RootLayout({
