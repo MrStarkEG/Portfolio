@@ -1,31 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { getStats, type Stats } from '@/lib/api'
+import { motion } from 'framer-motion'
+import { stats } from '@/lib/api'
 
 export default function About() {
-  const [stats, setStats] = useState<Stats | null>(null)
-
-  // Fetch stats (mock or real)
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const data = await getStats()
-        setStats(data)
-      } catch (error) {
-        // Fallback if API fails
-        setStats({
-          years_experience: "2+",
-          projects_completed: "15+",
-          articles_written: 6,
-          skills_mastered: 30
-        })
-      }
-    }
-    fetchStats()
-  }, [])
-
   return (
     <section id="about" className="py-24 bg-background relative z-10">
       <div className="container mx-auto px-6">
@@ -63,9 +41,9 @@ export default function About() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-12 pt-12 border-t border-white/10">
               {[
-                { label: 'Years Exp', value: stats?.years_experience ?? '2+' },
-                { label: 'Projects', value: stats?.projects_completed ?? '15+' },
-                { label: 'Articles', value: stats?.articles_written ?? 6 },
+                { label: 'Years Exp', value: stats.years_experience },
+                { label: 'Projects', value: stats.projects_completed },
+                { label: 'Articles', value: stats.articles_written },
                 { label: 'Commits', value: '1k+' }
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col">

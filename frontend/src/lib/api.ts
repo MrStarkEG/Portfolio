@@ -1,39 +1,8 @@
-import { projects } from '@/data/projects';
-import { skills } from '@/data/skills';
-import { experience } from '@/data/experience';
+import { projects, type Project } from '@/data/projects';
+import { skills, type Skill } from '@/data/skills';
+import { experience, type Experience } from '@/data/experience';
 import { fallbackArticles, type Article } from '@/data/articles';
 import { openSourceContributions, type OpenSourceContribution } from '@/data/openSource';
-
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  category: string;
-  github_url?: string;
-  demo_url?: string;
-  image_url?: string;
-  featured?: boolean;
-  threatIntel?: boolean;
-  confidential?: boolean;
-}
-
-export interface Skill {
-  name: string;
-  level: number;
-  category: string;
-  tag?: string;
-}
-
-export interface Experience {
-  id: number;
-  company: string;
-  position: string;
-  duration: string;
-  description: string;
-  highlights?: string[];
-  technologies?: string[];
-}
 
 export interface ContactMessage {
   name: string;
@@ -41,13 +10,9 @@ export interface ContactMessage {
   message: string;
 }
 
-export interface Stats {
-  projects_completed: number | string;
-  years_experience: number | string;
-  articles_written: number | string;
-  skills_mastered: number | string;
-}
-
+export type { Project } from '@/data/projects';
+export type { Skill } from '@/data/skills';
+export type { Experience } from '@/data/experience';
 export type { Article, OpenSourceContribution };
 
 const MEDIUM_RSS_URL = 'https://medium.com/feed/@mrstarkeg';
@@ -77,14 +42,15 @@ export const getOpenSource = async (): Promise<OpenSourceContribution[]> => {
   return Promise.resolve(openSourceContributions);
 };
 
-export const getStats = async (): Promise<Stats> => {
-  const stats: Stats = {
-    projects_completed: "15+",
-    years_experience: "2+",
-    articles_written: fallbackArticles.length,
-    skills_mastered: skills.length,
-  };
-  return Promise.resolve(stats);
+// Career start: first freelance contract, Apr 2022.
+const CAREER_START = Date.UTC(2022, 3, 1);
+const MS_PER_YEAR = 31_557_600_000;
+
+export const stats = {
+  projects_completed: `${projects.length}+`,
+  years_experience: `${Math.floor((Date.now() - CAREER_START) / MS_PER_YEAR)}+`,
+  articles_written: fallbackArticles.length,
+  skills_mastered: skills.length,
 };
 
 interface Rss2JsonItem {

@@ -12,6 +12,14 @@ export interface Article {
 export const fallbackArticles: Article[] = [
   {
     id: 1,
+    title: "What OpenCTI Is, and How to Actually Get It Running",
+    description: "Part one of a series on OpenCTI: what the platform is for, why a SOC needs one place where every piece of intel lands and stays searchable, and three install paths from a dev box to production.",
+    url: "https://medium.com/@mrstarkeg/what-opencti-is-and-how-to-actually-get-it-running-653b0f623c41",
+    readTime: "11 min read",
+    publishDate: "Apr 2026",
+  },
+  {
+    id: 2,
     title: "Scrapers vs. Rate Limits: A Love Story Gone Wrong",
     description: "How APIs defend against abusive traffic — rate limits, fingerprinting, header validation, and behavioral anomaly detection — with a working SlowAPI + FastAPI implementation.",
     url: "https://medium.com/@mrstarkeg/scrapers-vs-rate-limits-a-love-story-gone-wrong-72dcdf0687d8",
@@ -19,7 +27,7 @@ export const fallbackArticles: Article[] = [
     publishDate: "Nov 2025",
   },
   {
-    id: 2,
+    id: 3,
     title: "The Hidden Inefficiency of Using LLMs for Data Extraction",
     description: "Benchmarking BeautifulSoup against a Gemini-powered extractor shows traditional selectors are still 4x faster and dramatically cheaper for structured scraping.",
     url: "https://medium.com/@mrstarkeg/the-hidden-inefficiency-of-using-llms-for-data-extraction-e6f8a92fdf72",
@@ -27,7 +35,7 @@ export const fallbackArticles: Article[] = [
     publishDate: "Oct 2025",
   },
   {
-    id: 3,
+    id: 4,
     title: "I Used Robots to Destroy Robots",
     description: "Using AI to bypass WAFs and CAPTCHAs — Camoufox fingerprints, LLM-solved image CAPTCHAs, and MCP-driven browser agents against modern anti-bot stacks.",
     url: "https://medium.com/@mrstarkeg/i-used-robots-to-destroy-robots-5489a8110a14",
@@ -35,7 +43,7 @@ export const fallbackArticles: Article[] = [
     publishDate: "Aug 2025",
   },
   {
-    id: 4,
+    id: 5,
     title: "Bulletproof Web Scraping: Dockerization and Exception Handling",
     description: "Production-grade scraper stability through graceful exception handling and Docker-based isolation — the patterns that keep long-running pipelines upright.",
     url: "https://medium.com/@mrstarkeg/bulletproof-web-scraping-dockerization-and-exception-handling-for-reliable-data-extraction-a41ad7a789dd",
@@ -43,7 +51,7 @@ export const fallbackArticles: Article[] = [
     publishDate: "Jul 2025",
   },
   {
-    id: 5,
+    id: 6,
     title: "Is Web Scraping Dead in 2025?",
     description: "Modern anti-bot stacks are harder, but scraping is far from dead. A working playbook with CurlCFFI, browser automation, and fingerprint libraries.",
     url: "https://medium.com/@mrstarkeg/is-web-scraping-dead-in-2025-99785cd24fb2",
@@ -51,7 +59,7 @@ export const fallbackArticles: Article[] = [
     publishDate: "Jun 2025",
   },
   {
-    id: 6,
+    id: 7,
     title: "Selenium, Playwright, or Puppeteer?",
     description: "A head-to-head comparison of the three major browser-automation frameworks — why Playwright wins on performance, stealth, and ergonomics for modern scraping.",
     url: "https://medium.com/@mrstarkeg/selenium-playwright-or-puppeteer-77f0c4eaf7ce",

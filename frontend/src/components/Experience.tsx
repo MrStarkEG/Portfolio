@@ -76,10 +76,12 @@ export default function Experience() {
                   <div className="relative p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/[0.07] hover:border-primary-500/30 transition-all duration-300 group-hover:translate-x-2">
 
                     {/* Date Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-mono uppercase tracking-wider mb-6">
-                      <span className={`w-1.5 h-1.5 rounded-full ${exp.duration.includes('Present') ? 'bg-green-500 animate-pulse' : 'bg-primary-500'}`} />
-                      {exp.duration}
-                    </div>
+                    {exp.duration && (
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-mono uppercase tracking-wider mb-6">
+                        <span className={`w-1.5 h-1.5 rounded-full ${exp.duration.includes('Present') ? 'bg-green-500 animate-pulse' : 'bg-primary-500'}`} />
+                        {exp.duration}
+                      </div>
+                    )}
 
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
                       <div>
