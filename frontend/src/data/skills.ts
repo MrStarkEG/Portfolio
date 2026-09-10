@@ -8,6 +8,7 @@ export interface Skill {
 export const skills: Skill[] = [
   // Programming Languages
   { name: "Python", level: 95, category: "Programming Languages", tag: "Languages" },
+  { name: "JavaScript", level: 85, category: "Programming Languages", tag: "Languages" },
   { name: "Node.js", level: 80, category: "Programming Languages", tag: "Languages" },
   { name: "Rust", level: 65, category: "Programming Languages", tag: "Languages" },
 
